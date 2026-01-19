@@ -76,8 +76,8 @@ export const experiences: Experience[] = [
         location: "Lahore, Pakistan",
         type: "On-site",
         startDate: "Nov 2021",
-        endDate: "Jan 2025",
-        duration: "3y 3m",
+        endDate: "Present",
+        duration: "4 years +",
         achievements: [
             "Led full-stack development of cross-platform applications using Flutter, React, Next.js, and Node.js for international clients",
             "Architected and implemented scalable RESTful APIs using Node.js and Express.js handling 100K+ requests daily",
@@ -127,7 +127,7 @@ export const projects: Project[] = [
         badge: "Full-Stack",
         category: "Mobile",
         links: {},
-        image: "https://images.unsplash.com/photo-1556742049-0cfed4f7a07d?q=80&w=2073&auto=format&fit=crop",
+        image: "https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop",
         gallery: [
             "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop",
             "https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=2015&auto=format&fit=crop"
@@ -198,7 +198,7 @@ export const projects: Project[] = [
             ios: "https://apps.apple.com/us/app/myyogi-app/id6466390099",
             android: "https://play.google.com/store/apps/details?id=com.myyogi.app&hl=en",
         },
-        image: "https://images.unsplash.com/photo-1599447421405-0e5a106d8803?q=80&w=2070&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=2070&auto=format&fit=crop"
     },
     {
         id: "aquatics-connect",

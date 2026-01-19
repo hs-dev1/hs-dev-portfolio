@@ -13,8 +13,14 @@ interface SkillUniverseProps {
 
 function Word({ children, position, skill, onHover, ...props }: any) {
   const color = new THREE.Color();
-  const fontProps = { fontSize: 2.5, letterSpacing: -0.05, lineHeight: 1, 'material-toneMapped': false };
-  const ref = useRef<THREE.Mesh>(null);
+  const fontProps = { 
+    fontSize: 2.5, 
+    letterSpacing: -0.05, 
+    lineHeight: 1, 
+    'material-toneMapped': false,
+    font: "https://fonts.gstatic.com/s/inter/v12/UcCO3FwrK3iLTeHuS_fvQtMwCp50KnMw2boKoduKmMEVuLyfAZ9hjp-Ek-_EeA.woff"
+  };
+  const ref = useRef<any>(null);
   const [hovered, setHovered] = useState(false);
   
   const over = (e: any) => {
@@ -35,7 +41,9 @@ function Word({ children, position, skill, onHover, ...props }: any) {
         // Make text always face camera
         ref.current.quaternion.copy(camera.quaternion);
         // Animate color/scale on hover
-        (ref.current.material as THREE.MeshStandardMaterial).color.lerp(color.set(hovered ? '#00D9FF' : '#ffffff').convertSRGBToLinear(), 0.1);
+        if (ref.current.material) {
+          ref.current.material.color.lerp(color.set(hovered ? '#00D9FF' : '#ffffff'), 0.1);
+        }
         ref.current.scale.lerp(new THREE.Vector3().setScalar(hovered ? 1.5 : 1), 0.1);
     }
   });
