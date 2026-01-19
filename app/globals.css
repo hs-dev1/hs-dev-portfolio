@@ -1,27 +1,293 @@
+@import url('https://api.fontshare.com/v2/css?f[]=clash-display@200,300,400,500,600,700&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+  --primary-black: #0A0A0A;
+  --primary-cyan: #2E5CFF;
+  /* Remapped to Electric Blue for brand consistency */
+  --primary-white: #FFFFFF;
+  --primary-electric-blue: #2E5CFF;
+  --primary-vivid-purple: #9B4DFF;
+  --font-clash: 'Clash Display', sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
-  }
+/* ... existing code ... */
+
+/* Glow Effect - Remapped to Brand Blue */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(46, 92, 255, 0.3),
+    0 0 40px rgba(46, 92, 255, 0.2),
+    0 0 60px rgba(46, 92, 255, 0.1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  /* Removed scroll-behavior to prevent conflict with Lenis */
 }
 
 body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
+  background: var(--primary-black);
+  color: var(--primary-white);
+  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: var(--font-clash);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--primary-black);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--primary-cyan);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #00B8DD;
+}
+
+/* Selection */
+::selection {
+  background: var(--primary-cyan);
+  color: var(--primary-black);
+}
+
+::-moz-selection {
+  background: var(--primary-cyan);
+  color: var(--primary-black);
+}
+
+/* Focus Visible */
+*:focus-visible {
+  outline: 2px solid var(--primary-cyan);
+  outline-offset: 4px;
+  border-radius: 4px;
+}
+
+/* Extreme Typography Utilities */
+.text-mega {
+  font-size: clamp(3rem, 10vw, 12rem);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.06em;
+  text-transform: uppercase;
+}
+
+.text-tight-display {
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+}
+
+.text-spaced-detail {
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-size: 0.7rem;
+  font-weight: 600;
+  opacity: 0.5;
+}
+
+.text-display {
+  font-size: clamp(2.5rem, 8vw, 8rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.025em;
+}
+
+.text-micro {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  font-weight: 500;
+  opacity: 0.6;
+}
+
+.outline-text {
+  -webkit-text-stroke: 1px var(--primary-cyan);
+  color: transparent !important;
+}
+
+.ease-expo {
+  transition-timing-function: cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+/* Gradient Text */
+.gradient-text {
+  background: linear-gradient(135deg, var(--primary-cyan), var(--primary-white));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-brand {
+  background: linear-gradient(to right, var(--primary-electric-blue), var(--primary-vivid-purple));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Text Stroke */
+.text-stroke {
+  -webkit-text-stroke: 1px var(--primary-white);
+  color: transparent;
+}
+
+.text-stroke-cyan {
+  -webkit-text-stroke: 1px var(--primary-cyan);
+  color: transparent;
+}
+
+/* Glow Effect */
+.glow-cyan {
+  box-shadow: 0 0 20px rgba(46, 92, 255, 0.3),
+    0 0 40px rgba(46, 92, 255, 0.2),
+    0 0 60px rgba(46, 92, 255, 0.1);
+}
+
+/* Glassmorphism */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-strong {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* GPU Acceleration */
+.gpu-accelerated {
+  transform: translateZ(0);
+  will-change: transform;
+  backface-visibility: hidden;
+  perspective: 1000px;
+}
+
+/* Hover Lift */
+.hover-lift {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hover-lift:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Link Hover Animation - Left to Right */
+.link-underline {
+  position: relative;
+  display: inline-block;
+}
+
+.link-underline::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--primary-cyan);
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.6s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.link-underline:hover::after {
+  transform: scaleX(1);
+  transform-origin: left;
+}
+
+/* Button Expanding Background */
+.btn-expand {
+  position: relative;
+  overflow: hidden;
+  z-index: 1;
+}
+
+.btn-expand::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0;
+  height: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.2);
+  transform: translate(-50%, -50%);
+  transition: width 0.6s ease, height 0.6s ease;
+  z-index: -1;
+}
+
+.btn-expand:hover::before {
+  width: 300%;
+  height: 300%;
+}
+
+/* 3D Perspective for Letter Animations */
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+/* Clip Path Text Reveal Animation */
+.clip-reveal {
+  animation: clipReveal 1.2s cubic-bezier(0.77, 0, 0.175, 1) forwards;
+  clip-path: polygon(0 0, 0 0, 0 100%, 0% 100%);
+}
+
+@keyframes clipReveal {
+  to {
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 100%);
+  }
+}
+
+/* Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Hide Custom Cursor on Mobile */
+@media (max-width: 768px) {
+
+  .custom-cursor,
+  .cursor-dot,
+  .cursor-ring {
+    display: none !important;
+  }
 }
