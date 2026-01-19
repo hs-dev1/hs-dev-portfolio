@@ -62,7 +62,7 @@ export default function CustomCursor() {
       let closestElement: { element: Element, distance: number } | null = null;
       const magneticRadius = 80; // Detection radius
 
-      interactiveElements.forEach((element) => {
+      for (const element of interactiveElements) {
         const rect = element.getBoundingClientRect();
         const elementCenterX = rect.left + rect.width / 2;
         const elementCenterY = rect.top + rect.height / 2;
@@ -75,7 +75,7 @@ export default function CustomCursor() {
         if (distance < magneticRadius && (!closestElement || distance < closestElement.distance)) {
           closestElement = { element, distance };
         }
-      });
+      }
 
       if (closestElement) {
         const rect = closestElement.element.getBoundingClientRect();
